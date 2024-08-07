@@ -1,0 +1,14 @@
+boto3
+streamlit
+amazon-bedrock
+langchain
+langchain_aws
+langchain.prompts
+langchain.chains
+langchain.memory
+os
+time
+LLMChain
+ConversationBufferMemory
+PromptTemplate
+BedrockLLM

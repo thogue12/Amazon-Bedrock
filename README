@@ -1,0 +1,47 @@
+
+Langchain:
+    - A Python and JS framework used to build complex AI applications
+    - 
+
+
+Streamlit:
+    - Allows us to create a web application without the need of HTML, CSS and JS
+    - Ideally used for ML, and Data engineering
+    - Allow us to create graphs that pull from specified data
+
+AWS Bedrock Client Setup:
+    - Before we can use the bedock client we have to setup using boto3
+        - This is done by importing the client from boto3
+        - specifying the service name
+        - and what region you want the bedrock client to ran in. (there are only a handful regions that supports bedrock at the momment)
+        - example;
+            - bedrock_client = boto3.client(
+                    service_name="bedrock-runtime",
+                    region_name="us-east-1"
+                    )
+
+Model_ID:
+    - Because we are using Amazon Bedrock which allows us to use a number of LLMs APIs in our application, we have to specify which LLM to use.
+    - You can find this ID by going to Amazon Console > Bedrock > Providers > Select which LLM you want > Scoll down until you see API request
+    - In the API request you'll see.
+    -   {
+         "modelId": "anthropic.claude-v2:1",
+         "contentType": "application/json",
+         "accept": "*/*",
+        "body": "{\"prompt\":\"\\n\\nHuman: Hello world"}
+         
+
+Create BedrockLLM:
+    - We create a function called my_chatbot (or whatever you want) and give some basic parameters.
+    - funcion parameters:
+        - Language
+            - lets the chatbot know what language you want to chat in
+        - freeform_text
+            - this is represents the text used to speak to the bot
+    - Function Logic:
+        - Created a variable called prompt, whos value would the prompt template with the following arguments
+            - input_variables
+                - allows users to put value to those input_variables
+                - the input variables are the same as the functions parameters
+                - the values will specified by the user
+
